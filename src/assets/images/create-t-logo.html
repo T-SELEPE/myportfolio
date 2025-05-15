@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create T Logo</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #333;
+    }
+    canvas {
+      background-color: white;
+    }
+    .instructions {
+      position: fixed;
+      top: 20px;
+      background: white;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="instructions">
+    <p>Right-click on the image and select "Save Image As..." to save as logo-t.png</p>
+  </div>
+  <canvas id="canvas" width="300" height="400"></canvas>
+  
+  <script>
+    // Get the canvas element
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    
+    // Set the background to transparent
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Draw a T shape in black
+    ctx.fillStyle = 'black';
+    
+    // Top horizontal bar of the T
+    ctx.fillRect(50, 50, 200, 50);
+    
+    // Vertical stem of the T
+    ctx.fillRect(125, 100, 50, 250);
+  </script>
+</body>
+</html> 
