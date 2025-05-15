@@ -50,7 +50,7 @@ const Portfolio = () => {
                 ]
             },
             {
-                name: "Rentoza E-commerce App Redesign",
+                name: "Rentoza E-commerce Application Redesign",
                 description: "Mobile App Redesign",
                 image: "/portfolio/rentoza/cover.png",
                 buttons: [
@@ -61,7 +61,7 @@ const Portfolio = () => {
                 ]
             },
             {
-                name: "FNB Case Study:Horizon Liv",
+                name: "FNB Case Study:Horizon Liv-Unified Lifestyle App",
                 description: "Case Study",
                 image: "/portfolio/fnb/cover.png",
                 overlayClass: "blue-overlay",

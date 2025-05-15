@@ -44,7 +44,7 @@ const Contact = () => {
             />
           </h1>
           <p>
-          Tech recruiters & Hiring managers – if you're looking for someone to manage or contribute to your organization’s design system,
+          Tech recruiters & Hiring managers – if you're looking for someone to manage or contribute to your organization's design system,
            own, manage & contribute to your Figma libraries,
            or collaborate closely with your design team, my inbox welcomes you with both arms!
           </p>
