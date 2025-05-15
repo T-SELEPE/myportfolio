@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
-import gsap from 'gsap-trial'
-import DrawSVGPlugin from 'gsap-trial/DrawSVGPlugin'
+import gsap from 'gsap'
+import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin'
 import './index.scss'
 
 const Logo = () => {
@@ -9,6 +9,7 @@ const Logo = () => {
   const solidLogoRef = useRef()
 
   useEffect(() => {
+    // Register the plugin
     gsap.registerPlugin(DrawSVGPlugin)
 
     gsap
