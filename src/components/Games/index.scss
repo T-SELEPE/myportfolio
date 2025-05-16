@@ -8,8 +8,8 @@
 
   .text-zone {
     position: absolute;
-    left: 10%;
-    top: 50%;
+    left: 5%;
+    top: 25%;
     transform: translateY(-50%);
     width: 35%;
     vertical-align: middle;
@@ -99,15 +99,19 @@
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-    width: 50%;
+    width: 60%;
     padding: 40px;
     background: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
     border: 2px solid #ffd700;
     color: white;
     text-align: center;
-    margin-right: 10%;
+    margin-right: 5%;
     font-family: 'Poppins', sans-serif;
+    height: 80vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
 
     h2 {
       color: #ffd700;
@@ -121,6 +125,16 @@
       line-height: 1.6;
     }
 
+    .game-container {
+      flex: 1;
+      overflow-y: auto;
+      margin-bottom: 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     .coming-soon {
       font-style: italic;
       color: #ffd700;
@@ -129,7 +143,7 @@
     }
 
     .back-button {
-      background: transparent;
+      background: #333;
       color: #fff;
       border: 2px solid #ffd700;
       padding: 10px 20px;
@@ -139,10 +153,627 @@
       transition: all 0.3s;
       font-weight: 600;
       font-family: 'Poppins', sans-serif;
+      position: absolute;
+      bottom: 40px;
+      right: 40px;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 
       &:hover {
         background: #ffd700;
         color: #000;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+      }
+      
+      &:active {
+        transform: translateY(2px);
+      }
+    }
+  }
+
+  // Hangman Game
+  .hangman-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    
+    .game-info {
+      margin-bottom: 20px;
+      text-align: center;
+      
+      h3 {
+        color: #ffd700;
+        margin-bottom: 10px;
+      }
+    }
+    
+    .hangman-display {
+      margin: 20px 0;
+      height: 200px;
+      position: relative;
+      
+      .hangman-stand {
+        position: relative;
+        height: 100%;
+        
+        .top-bar {
+          position: absolute;
+          top: 0;
+          left: 30px;
+          width: 120px;
+          height: 10px;
+          background: #ffd700;
+        }
+        
+        .vertical-bar {
+          position: absolute;
+          top: 0;
+          left: 30px;
+          height: 180px;
+          width: 10px;
+          background: #ffd700;
+        }
+        
+        .bottom-bar {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 70px;
+          height: 10px;
+          background: #ffd700;
+        }
+        
+        .head {
+          position: absolute;
+          top: 20px;
+          left: 130px;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          border: 10px solid #ffd700;
+        }
+        
+        .body {
+          position: absolute;
+          top: 70px;
+          left: 150px;
+          width: 10px;
+          height: 60px;
+          background: #ffd700;
+        }
+        
+        .arm {
+          position: absolute;
+          width: 40px;
+          height: 10px;
+          background: #ffd700;
+          top: 80px;
+        }
+        
+        .left-arm {
+          left: 120px;
+          transform: rotate(30deg);
+        }
+        
+        .right-arm {
+          left: 150px;
+          transform: rotate(-30deg);
+        }
+        
+        .leg {
+          position: absolute;
+          width: 40px;
+          height: 10px;
+          background: #ffd700;
+          top: 130px;
+        }
+        
+        .left-leg {
+          left: 120px;
+          transform: rotate(30deg);
+        }
+        
+        .right-leg {
+          left: 150px;
+          transform: rotate(-30deg);
+        }
+      }
+    }
+    
+    .word-display {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+      
+      .letter {
+        font-size: 24px;
+        width: 30px;
+        margin: 0 5px;
+        border-bottom: 2px solid #ffd700;
+        text-align: center;
+      }
+    }
+    
+    .keyboard {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+      max-width: 500px;
+      margin: 20px auto;
+      
+      .key {
+        background: #333;
+        color: white;
+        border: 1px solid #ffd700;
+        border-radius: 4px;
+        padding: 8px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: all 0.2s;
+        
+        &:hover:not(:disabled) {
+          background: #ffd700;
+          color: black;
+        }
+        
+        &:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
+        
+        &.correct {
+          background: #006633;
+          border-color: #00cc66;
+        }
+        
+        &.wrong {
+          background: #990000;
+          border-color: #cc0000;
+        }
+      }
+    }
+    
+    .status-message {
+      margin: 20px 0;
+      font-size: 18px;
+      font-weight: 600;
+      
+      &.win {
+        color: #00cc66;
+      }
+      
+      &.lose {
+        color: #cc0000;
+      }
+    }
+    
+    .restart-button {
+      background: transparent;
+      color: white;
+      border: 2px solid #ffd700;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 10px;
+      
+      &:hover {
+        background: #ffd700;
+        color: black;
+      }
+    }
+
+    .controls-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+  }
+
+  // Tic-Tac-Toe Game
+  .tictactoe-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    
+    .game-info {
+      margin-bottom: 20px;
+      text-align: center;
+      
+      h3 {
+        color: #ffd700;
+        margin-bottom: 10px;
+      }
+    }
+    
+    .difficulty-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+      
+      label {
+        margin-right: 10px;
+        font-weight: 600;
+      }
+      
+      .difficulty-select {
+        background: #333;
+        color: white;
+        border: 2px solid #ffd700;
+        border-radius: 4px;
+        padding: 5px 10px;
+        font-family: 'Poppins', sans-serif;
+        cursor: pointer;
+        
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+        }
+        
+        option {
+          background: #222;
+        }
+      }
+    }
+    
+    .tictactoe-board {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      grid-template-rows: repeat(3, 100px);
+      gap: 5px;
+      margin: 20px 0;
+      
+      .cell {
+        background: #333;
+        border: 2px solid #444;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 48px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.2s;
+        
+        &:hover:not(:empty) {
+          background: #444;
+        }
+        
+        &.x {
+          color: #4CAF50;
+        }
+        
+        &.o {
+          color: #FF5252;
+        }
+      }
+    }
+    
+    .game-status {
+      margin: 20px 0;
+      font-size: 18px;
+      font-weight: 600;
+      
+      &.win {
+        color: #00cc66;
+      }
+      
+      &.draw {
+        color: #ffd700;
+      }
+    }
+    
+    .restart-button {
+      background: transparent;
+      color: white;
+      border: 2px solid #ffd700;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 10px;
+      
+      &:hover {
+        background: #ffd700;
+        color: black;
+      }
+    }
+
+    .controls-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+  }
+
+  // Typing Speed Test
+  .typing-test-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    
+    .game-info {
+      margin-bottom: 20px;
+      text-align: center;
+      
+      h3 {
+        color: #ffd700;
+        margin-bottom: 10px;
+      }
+    }
+    
+    .text-display {
+      background: #222;
+      padding: 20px;
+      border-radius: 5px;
+      margin: 20px 0;
+      line-height: 1.6;
+      text-align: left;
+      max-width: 600px;
+      
+      span {
+        font-size: 18px;
+        
+        &.correct {
+          color: #4CAF50;
+        }
+        
+        &.incorrect {
+          color: #FF5252;
+          text-decoration: underline;
+        }
+      }
+    }
+    
+    .input-area {
+      width: 100%;
+      max-width: 600px;
+      margin: 20px 0;
+      
+      .text-input {
+        width: 100%;
+        height: 100px;
+        padding: 10px;
+        border-radius: 5px;
+        background: #333;
+        color: white;
+        border: 2px solid #444;
+        font-size: 16px;
+        font-family: 'Poppins', sans-serif;
+        resize: none;
+        
+        &:focus {
+          outline: none;
+          border-color: #ffd700;
+        }
+        
+        &:disabled {
+          opacity: 0.7;
+          cursor: not-allowed;
+        }
+      }
+    }
+    
+    .stats-display {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      max-width: 600px;
+      margin: 20px 0;
+      
+      .time, .wpm, .accuracy {
+        background: #333;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: 600;
+      }
+      
+      .wpm.good-result {
+        color: #4CAF50;
+      }
+      
+      .wpm.average-result {
+        color: #ffd700;
+      }
+      
+      .wpm.poor-result {
+        color: #FF5252;
+      }
+    }
+    
+    .button-container {
+      margin: 10px 0;
+      
+      .start-button {
+        background: transparent;
+        color: white;
+        border: 2px solid #ffd700;
+        padding: 10px 20px;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s;
+        
+        &:hover {
+          background: #ffd700;
+          color: black;
+        }
+      }
+    }
+
+    .controls-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 600px;
+      gap: 10px;
+      margin-top: 10px;
+    }
+  }
+
+  // Snake Game
+  .snake-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    
+    .game-info {
+      margin-bottom: 20px;
+      text-align: center;
+      
+      h3 {
+        color: #ffd700;
+        margin-bottom: 10px;
+      }
+    }
+    
+    .snake-game-layout {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin: 10px 0;
+      width: 100%;
+      max-width: 800px;
+    }
+    
+    .canvas-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .snake-score {
+      margin-bottom: 15px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #ffd700;
+    }
+    
+    .snake-canvas {
+      border: 3px solid #ffd700;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
+    
+    .controls-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+      justify-content: center;
+      width: 150px;
+    }
+    
+    .game-controls {
+      text-align: center;
+      padding: 10px;
+      border: 2px solid #333;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.4);
+      
+      .control-btn {
+        background: #333;
+        color: white;
+        border: 2px solid #ffd700;
+        border-radius: 5px;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        cursor: pointer;
+        margin: 5px;
+        transition: all 0.2s;
+        
+        &:hover {
+          background: #ffd700;
+          color: black;
+        }
+        
+        &.up-btn, &.down-btn {
+          display: block;
+          margin: 5px auto;
+        }
+      }
+    }
+    
+    .game-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      
+      .pause-button, .restart-button {
+        background: transparent;
+        color: white;
+        border: 2px solid #ffd700;
+        padding: 12px 20px;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s;
+        
+        &:hover {
+          background: #ffd700;
+          color: black;
+        }
+      }
+    }
+    
+    .game-over-container {
+      position: relative;
+      width: 100%;
+      height: 0;
+      z-index: 50;
+      
+      .game-over {
+        position: absolute;
+        top: -250px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.9);
+        padding: 20px 40px;
+        border-radius: 10px;
+        border: 2px solid #ffd700;
+        text-align: center;
+        min-width: 300px;
+        z-index: 60;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        
+        h3 {
+          color: #ffd700;
+          margin-bottom: 15px;
+          font-size: 24px;
+        }
+        
+        p {
+          margin-bottom: 20px;
+        }
+        
+        button {
+          background: transparent;
+          color: white;
+          border: 2px solid #ffd700;
+          padding: 8px 20px;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: all 0.3s;
+          
+          &:hover {
+            background: #ffd700;
+            color: black;
+          }
+        }
       }
     }
   }
@@ -175,6 +806,26 @@
       transform: none;
       margin: 20px 0;
       box-sizing: border-box;
+      height: auto;
+      max-height: 80vh;
+    }
+    
+    .snake-container .snake-game-layout {
+      flex-direction: column;
+    }
+    
+    .snake-container .snake-canvas {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    .hangman-container .keyboard {
+      grid-template-columns: repeat(5, 1fr);
+    }
+    
+    .tictactoe-container .tictactoe-board {
+      grid-template-columns: repeat(3, 80px);
+      grid-template-rows: repeat(3, 80px);
     }
   }
 } 
