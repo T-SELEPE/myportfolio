@@ -220,7 +220,7 @@ const Games = () => {
     
     const infoDiv = document.createElement('div')
     infoDiv.className = 'game-info'
-    infoDiv.innerHTML = '<h3>Snake Game</h3><p>Use arrow keys to move the snake. Collect the red food without hitting walls or yourself!</p>'
+    infoDiv.innerHTML = '<h3>Snake Game</h3><p> you may use the arrow keys on your keyboard to control the snake. Collect the red food without hitting walls or yourself!</p>'
     gameArea.appendChild(infoDiv)
     
     // Create game layout container for side-by-side display
