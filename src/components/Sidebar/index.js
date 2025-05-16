@@ -16,6 +16,7 @@ import {
   faSuitcase,
   faBars,
   faClose,
+  faGamepad
 } from '@fortawesome/free-solid-svg-icons'
 import { Link, NavLink } from 'react-router-dom'
 
@@ -61,6 +62,14 @@ const Sidebar = () => {
           onClick={() => setShowNav(false)}
         >
           <FontAwesomeIcon icon={faEnvelope} color="#4d4d4e" />
+        </NavLink>
+        <NavLink
+          activeclassname="active"
+          className="games-link"
+          to="/games"
+          onClick={() => setShowNav(false)}
+        >
+          <FontAwesomeIcon icon={faGamepad} color="#4d4d4e" />
         </NavLink>
         <FontAwesomeIcon 
           onClick={() => setShowNav(false)}

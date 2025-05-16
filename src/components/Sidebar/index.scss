@@ -1,5 +1,5 @@
 .nav-bar {
-  background: #181818;
+  background: white;
   width: 60px;
   height: 100%;
   position: absolute;
@@ -95,6 +95,12 @@
         content: 'PORTFOLIO';
       }
     }
+    
+    a.games-link {
+      &:after {
+        content: 'GAMES';
+      }
+    }
 
     a.active {
       svg {
@@ -151,7 +157,7 @@
       width: 100%;
       top: 0;
       left: 0;
-      background: #181818;
+      background: white;
       height: 100%;
       margin: 0;
       z-index: 2;
