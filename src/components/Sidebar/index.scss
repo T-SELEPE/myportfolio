@@ -96,6 +96,12 @@
       }
     }
     
+    a.testimonials-link {
+      &:after {
+        content: 'TESTIMONIALS';
+      }
+    }
+    
     a.games-link {
       &:after {
         content: 'GAMES';
