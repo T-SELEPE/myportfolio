@@ -92,35 +92,32 @@
     .testimonial-card {
       background-color: rgba(0, 0, 0, 0.3);
       border-radius: 10px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+      padding: 25px;
       border: 1px solid #ffd700;
       box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
       transition: all 0.3s ease-in-out;
+      position: relative;
+
+      &:before {
+        content: '"';
+        font-family: 'Georgia', serif;
+        font-size: 60px;
+        color: rgba(255, 215, 0, 0.2);
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        line-height: 1;
+      }
 
       &:hover {
         transform: translateY(-5px);
         box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
       }
 
-      .testimonial-image {
-        width: 100%;
-        border-radius: 5px;
-        overflow: hidden;
-        
-        img {
-          width: 100%;
-          height: auto;
-          object-fit: cover;
-        }
-      }
-
       .testimonial-content {
         h3 {
           color: #ffd700;
-          font-size: 20px;
+          font-size: 22px;
           margin-bottom: 5px;
           font-weight: 600;
         }
@@ -129,13 +126,22 @@
           color: #8d8d8d;
           font-size: 16px;
           margin-top: 0;
-          margin-bottom: 15px;
+          margin-bottom: 5px;
           font-weight: 400;
         }
 
+        .testimonial-date {
+          color: #8d8d8d;
+          font-size: 14px;
+          font-style: italic;
+          margin-bottom: 15px;
+        }
+
         p {
-          margin-bottom: 10px;
+          margin-bottom: 15px;
           line-height: 1.6;
+          font-size: 14px;
+          max-width: 100%;
         }
       }
     }

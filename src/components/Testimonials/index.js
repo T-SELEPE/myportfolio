@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react'
 import Loader from 'react-loaders'
 import AnimatedLetters from '../AnimatedLetters'
 import './index.scss'
-import testimonial1 from '../../assets/images/testimonial1.png'
-import testimonial2 from '../../assets/images/testimonial2.png'
 
 const Testimonials = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
@@ -36,12 +34,10 @@ const Testimonials = () => {
 
       <div className="testimonials-container">
         <div className="testimonial-card">
-          <div className="testimonial-image">
-            <img src={testimonial1} alt="Testimonial from Thabang Kutumela" />
-          </div>
           <div className="testimonial-content">
             <h3>Thabang Kutumela</h3>
             <h4>Software Developer</h4>
+            <div className="testimonial-date">November 22, 2024</div>
             <p>
               I had the privilege of working alongside Tshepo on Nintex's design system, where he demonstrated exceptional
               talent as a UX Engineer. Tshepo's expertise in UX design and his dedication to building scalable, efficient, and
@@ -53,16 +49,19 @@ const Testimonials = () => {
               every element we produced adhered to the highest standards, resulting in a seamless and cohesive user
               experience across our digital products.
             </p>
+            <p>
+              If you're looking for a UX professional who combines technical skills with a clear understanding of the human
+              element of design, Tshepo is the person for the job. It was a pleasure working with him, and I can confidently
+              recommend him as a true asset to any team.
+            </p>
           </div>
         </div>
 
         <div className="testimonial-card">
-          <div className="testimonial-image">
-            <img src={testimonial2} alt="Testimonial from Ntobeko Mdlalose" />
-          </div>
           <div className="testimonial-content">
             <h3>Ntobeko Mdlalose</h3>
             <h4>Associate Technical Writer at Nintex</h4>
+            <div className="testimonial-date">November 20, 2024</div>
             <p>
               I've had the pleasure of working with Tshepo at Nintex, where he has consistently showcased his exceptional skills
               as a UX Engineer. His ability to design intuitive, user-focused interfaces is outstanding.
