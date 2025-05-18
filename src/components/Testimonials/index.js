@@ -27,7 +27,7 @@ const Testimonials = () => {
           />
         </h1>
         <p>
-          Here are some recommendations writte on Linkedin from former colleagues who I've had the pleasure of working with.
+          Here are some recommendations written on Linkedin from former colleagues who I've had the pleasure of working with.
           These testimonials reflect my professional skills, work ethic, and collaborative approach.
         </p>
       </div>
