@@ -37,7 +37,7 @@ const Testimonials = () => {
           <div className="testimonial-content">
             <h3>Thabang Kutumela</h3>
             <h4>Software Developer</h4>
-            <div className="testimonial-date">November 22, 2024</div>
+        
             <p>
               I had the privilege of working alongside Tshepo on Nintex's design system, where he demonstrated exceptional
               talent as a UX Engineer. Tshepo's expertise in UX design and his dedication to building scalable, efficient, and
@@ -61,7 +61,7 @@ const Testimonials = () => {
           <div className="testimonial-content">
             <h3>Ntobeko Mdlalose</h3>
             <h4>Associate Technical Writer at Nintex</h4>
-            <div className="testimonial-date">November 20, 2024</div>
+            
             <p>
               I've had the pleasure of working with Tshepo at Nintex, where he has consistently showcased his exceptional skills
               as a UX Engineer. His ability to design intuitive, user-focused interfaces is outstanding.
