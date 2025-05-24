@@ -32,11 +32,26 @@ const Testimonials = () => {
         </p>
       </div>
 
+      
+
       <div className="testimonials-container">
+      <div className="testimonial-card">
+          <div className="testimonial-content">
+            <h3>Ye Wang</h3>
+            <h4>Principal Product Experience Designer at Oracle</h4>
+        
+            <p>
+            Working with Tshepo was a great experience. One of the qualities that stood out most was his ability to learn quickly and apply new knowledge with confidence. Whether it was adapting to new tools, frameworks, or workflows, Tshepo picked things up faster than most and was able to deliver good-quality work in a short amount of time. He often asked thoughtful questions, and I’m impressed by his deep understanding of the problems to solve and his passion to solve them. 
+            I recommend Tshepo as a great UX engineer and I truely think he will be a valuable asset to your team! 
+            </p>
+           
+           
+          </div>
+        </div>
         <div className="testimonial-card">
           <div className="testimonial-content">
             <h3>Thabang Kutumela</h3>
-            <h4>Software Developer</h4>
+            <h4>Software Developer at Nintex</h4>
         
             <p>
               I had the privilege of working alongside Tshepo on Nintex's design system, where he demonstrated exceptional
