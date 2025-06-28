@@ -83,22 +83,7 @@ const Portfolio = () => {
                     }
                 ]
             },
-            {
-                name: "Meet CardSpace",
-                description: "Your all-in-one loyalty app",
-                image: "/portfolio/cardspace/cover.png",
-                overlayClass: "blue-overlay",
-                buttons: [
-                    {
-                        text: "Download on iOS",
-                        url: "https://apps.apple.com/za/app/meet-cardspace/id1585628713"
-                    },
-                    {
-                        text: "Download on Android",
-                        url: "https://play.google.com/store/apps/details?id=com.meetcardspace.app&hl=en&gl=US&pli=1"
-                    }
-                ]
-            }
+            
         ]);
     }, []);
 
