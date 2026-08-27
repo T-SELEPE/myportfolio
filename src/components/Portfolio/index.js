@@ -6,27 +6,14 @@ import "./index.scss";
 const Portfolio = () => { 
     const [letterClass, setLetterClass] = useState('text-animate');
     const [portfolio, setPortfolio] = useState([]);
-    const [showScrollIndicator, setShowScrollIndicator] = useState(true);
 
     useEffect(() => {
         const timer = setTimeout(() => {
             setLetterClass('text-animate-hover');
         }, 3000);
 
-        // Add scroll event listener to hide indicator on scroll
-        const handleScroll = () => {
-            if (window.scrollY > 100) {
-                setShowScrollIndicator(false);
-            } else {
-                setShowScrollIndicator(true);
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
         return () => {
             clearTimeout(timer);
-            window.removeEventListener('scroll', handleScroll);
         }
     }, []);
 
@@ -131,12 +118,6 @@ const Portfolio = () => {
                     />
                 </h1>
                 <div>{renderPortfolio(portfolio)}</div>
-                {showScrollIndicator && (
-                    <div className="scroll-indicator">
-                        <span className="scroll-text">Scroll to see more projects</span>
-                        <span className="scroll-arrow">↓</span>
-                    </div>
-                )}
             </div>
             <Loader type="pacman" />
         </>
