@@ -127,7 +127,7 @@ const Games = () => {
       // Special handling for Snake game
       if (selectedGame === 'snake-game') {
         // Find and clear any game intervals that might be running
-        const intervalIds = [];
+      
         const maxIntervalId = setInterval(() => {}, 0);
         
         // Clear all possible intervals
@@ -183,7 +183,8 @@ const Games = () => {
   };
 
   // Function to run initialization after the component is fully mounted
-  const safeInitGame = (game, container) => {
+   // eslint-disable-next-line
+  function safeInitGame(game, container) {
     // Use a small delay to ensure the container is fully in the DOM
     const timer = setTimeout(() => {
       try {
@@ -1401,5 +1402,6 @@ const Games = () => {
     </div>
   )
 }
+
 
 export default Games 
