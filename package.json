@@ -12,6 +12,8 @@
     "@testing-library/react": "^12.1.3",
     "@testing-library/user-event": "^13.5.0",
     "animate.css": "^4.1.1",
+    "baseline-browser-mapping": "^2.11.19",
+    "caniuse-lite": "^1.0.30001810",
     "firebase": "^9.8.3",
     "gsap": "^3.13.0",
     "leaflet": "^1.7.1",
