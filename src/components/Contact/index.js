@@ -44,9 +44,7 @@ const Contact = () => {
             />
           </h1>
           <p>
-          Tech recruiters & Hiring managers – if you're looking for someone to manage or contribute to your organization's design system,
-           own, manage & contribute to your Figma libraries,
-           or collaborate closely with your design team, my inbox welcomes you with both arms!
+         Designing is my passion and I love challenges that bring the best out of me.
           </p>
           <div className="contact-form">
             <form ref={form} onSubmit={sendEmail}>
